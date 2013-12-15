@@ -1,0 +1,23 @@
+#login_wrapper {
+	background: #e9cfcf;
+	margin: 200px auto 0;
+	padding: 25px;
+	text-align: center;
+}
+#login_wrapper input,
+#login_wrapper button {
+	background: #eee;
+	border: 1px solid #999;
+	border-radius: 3px;
+	font-size: 18px;
+	margin: 10px;
+	outline: none;
+	padding: 5px;
+	width: 200px;
+}
+#login_wrapper button {
+	cursor: pointer;
+}
+#login_wrapper button:hover {
+	background: #ddd;
+}

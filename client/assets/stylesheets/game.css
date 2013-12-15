@@ -1,0 +1,47 @@
+#game_wrapper {
+	background: #559a43;
+	height: 100%;
+	position: relative;
+	width: 100%;
+	z-index: 1001;
+}
+#game_wrapper[rel~='underground'] {
+	background: #000;
+}
+#game_wrapper #game {
+	background: #559a43;
+	height: 100%;
+	left: 0px;
+	overflow: visible;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	z-index: 10;
+}
+
+/**
+ * Sidebar
+ */
+#sidebar {
+	background: #d3d3d3;
+	height: 100%;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 300px;
+	z-index: 20;
+}
+
+/**
+ * Player sprite
+ */
+#player_sprite {
+	background: #f00;
+	border-radius: 5px;
+	height: 10px;
+	left: -10px;
+	position: fixed;
+	width:10px;
+	top: -10px;
+	z-index: 1000;
+}

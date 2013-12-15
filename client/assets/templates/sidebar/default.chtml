@@ -1,0 +1,13 @@
+<div class="top">
+	<div id="player_info">
+		<div class="player_name">{{player.name}}</div>
+		<div class="player_level">lvl {{player.level}}</div>
+		<div class="player_coords">{{player.coord_x}}, {{player.coord_y}}, {{player.coord_z}}</div>
+	</div>
+</div>
+<div class="middle">
+
+</div>
+<div class="bottom">
+
+</div>

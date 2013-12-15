@@ -1,0 +1,12 @@
+body {
+	background: #dedede;
+	font-family: arial;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+#stage {
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}

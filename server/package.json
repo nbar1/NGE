@@ -1,0 +1,11 @@
+{
+	 "name": "n1ge",
+	 "description": "NBAR1 Game Engine",
+	 "version": "0.0.1",
+	 "dependencies": {
+		"express": "latest",
+		"socket.io": "latest",
+		"mustache": "latest",
+		"mysql": "latest"
+	 }
+}
