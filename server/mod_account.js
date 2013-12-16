@@ -4,16 +4,19 @@ module.exports = {
 	 */
 	getAccountIdByUserPass: function(database, data, callback) {
 		var post  = [data.username, data.password, 1];
-		var query = database.connection.query('SELECT account_id FROM accounts WHERE username=? AND password=? AND active=? LIMIT 1', post, function(err, result) {
-			var account_id = result[0].account_id;
-			if(account_id) {
-				callback(account_id)
+		var query = database.connection.query(
+			'SELECT account_id FROM accounts WHERE username=? AND password=? AND active=? LIMIT 1',
+			post,
+			function(err, result) {
+				var account_id = result[0].account_id;
+				if(account_id) {
+					callback(account_id);
+				}
+				else {
+					return false;
+				}
 			}
-			else {
-				console.log('lol');
-				return false;
-			}
-		});
+		);
 	},
 
 	/**
@@ -21,14 +24,18 @@ module.exports = {
 	 */
 	getAccountInfo: function(database, data, callback) {
 		var post  = [data.account_id];
-		var query = database.connection.query('SELECT * FROM accounts WHERE account_id=? LIMIT 1', post, function(err, result) {
-			if(result.length > 0) {
-				callback(result[0])
+		var query = database.connection.query(
+			'SELECT * FROM accounts WHERE account_id=? LIMIT 1',
+			post,
+			function(err, result) {
+				if(result.length > 0) {
+					callback(result[0]);
+				}
+				else {
+					return false;
+				}
 			}
-			else {
-				return false;
-			}
-		});
+		);
 	},
 
 	/**
@@ -36,14 +43,16 @@ module.exports = {
 	 */
 	updateAccountLastLogin: function(database, data) {
 		var post  = [this.getNowDate(), data.account_id];
-		var query = database.connection.query('UPDATE accounts SET last_login=? WHERE account_id=?', post, function(err, result) {
-			if(result) {
-				return result;
-			}
-			else {
+		var query = database.connection.query(
+			'UPDATE accounts SET last_login=? WHERE account_id=?',
+			post,
+			function(err, result) {
+				if(result) {
+					return result;
+				}
 				return false;
 			}
-		});
+		);
 	},
 
 	/**
@@ -51,14 +60,18 @@ module.exports = {
 	 */
 	createAccount: function(database, data, callback) {
 		var post = [data.username, data.password, data.email, this.getNowDate(), this.getNowDate()];
-		var query = database.connection.query('INSERT INTO accounts (username, password, email, registered_on, last_login) VALUES (?, ?, ?, ?, ?)', post, function(err, result) {
-			if(result) {
-				callback(true)
+		var query = database.connection.query(
+			'INSERT INTO accounts (username, password, email, registered_on, last_login) VALUES (?, ?, ?, ?, ?)',
+			post,
+			function(err, result) {
+				if(result) {
+					callback(true);
+				}
+				else {
+					callback(false);
+				}
 			}
-			else {
-				callback(false);
-			}
-		});
+		);
 	},
 
 	/**
@@ -73,12 +86,5 @@ module.exports = {
 			+ ':' + pad2(dt.getMinutes())
 			+ ':' + pad2(dt.getSeconds());
 		return dtstring;
-	},
-
-	/**
-	 * Generic callback handler
-	 */
-	callback: function(data) {
-		return data;
 	}
 }

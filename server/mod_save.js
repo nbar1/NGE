@@ -7,7 +7,7 @@ module.exports = {
 	},
 
 	/**
-	 * Save given userå
+	 * Save given user
 	 */
 	saveUser: function(database, data) {
 		
