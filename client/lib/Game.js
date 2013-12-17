@@ -43,7 +43,9 @@ game = {
 	 * Disconnect from server
 	 */
 	disconnect: function(message) {
-		if(this.socket) { this.socket.disconnect(message); }
+		if(this.socket) {
+			this.socket.disconnect(message);
+		}
 	},
 
 	/**

@@ -14,12 +14,13 @@ game.ui = {
 	 * Set up bindings
 	 */
 	bind: function() {
-		$(window).resize(function(){game.ui.addPlayerSpriteToMap();});
-		$('#stage').on('click', function(e){game.ui.sendClick(e, e);});
+		// Still need to remap objects on when addPlayerSpriteToMap is called from a resize
+		$(window).resize(function(){ game.ui.addPlayerSpriteToMap(); });
+		$('#stage').on('click', function(e){ game.ui.sendClick(e, e); });
 	},
 
 	/**
-	 * Set Gui stage
+	 * Add elements to the screen
 	 */
 	addScreenElements: function(data) {
 		$.each(data, function(k, v) {
@@ -132,7 +133,7 @@ game.ui = {
 	/**
 	 * Convert map coords to canvas coords
 	 *
-	 * For use when placing an object based on it's map coords
+	 * For use when placing an object on the screen based on it's map coords
 	 */
 	convertCoordsMapToCanvas: function(coords) {
 		var canvas = this.getContainerCoordinates().canvas;
@@ -145,7 +146,7 @@ game.ui = {
 	/**
 	 * Convert canvas coords to map coords
 	 *
-	 * For use when figuring out click coordinates
+	 * For use when figuring out map coordinates based off of screen coordinates
 	 */
 	convertCoordsCanvasToMap: function(coords) {
 		var game_canvas = this.getContainerCoordinates().canvas;
@@ -159,6 +160,8 @@ game.ui = {
 
 	/**
 	 * Flush UI
+	 *
+	 * @TODO make useful or delete
 	 */
 	flush: function(data) {
 		$('#game').css({top: '0px', left: '0px'});
